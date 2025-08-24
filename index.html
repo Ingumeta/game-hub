@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Game Hub</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <style>
+    body {
+      background: #06080a;
+      color: #fff;
+      font: 18px system-ui, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    h1 {
+      margin-bottom: 32px;
+      font-size: 2em;
+      font-weight: 700;
+    }
+    .game-list {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr;
+      width: 100%;
+      max-width: 340px;
+    }
+    .game-link {
+      display: block;
+      background: #151c28;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 18px;
+      padding: 24px;
+      font-size: 1.2em;
+      text-align: center;
+      transition: background 0.2s;
+      border: 2px solid #222a36;
+    }
+    .game-link:hover, .game-link:focus {
+      background: #222a36;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="assets/icon.svg" alt="Game Hub Icon" style="width:100px;margin-bottom:100px;">
+  <!-- <h1>Game Hub</h1> -->
+  <div class="game-list">
+    <a class="game-link" href="games/king-of-tokyo/king-of-tokyo.html">King of Tokyo Counter</a>
+    <!-- Add more games here -->
+    <!-- Example:
+    <a class="game-link" href="games/another-game/another-game.html">Another Game</a>
+    -->
+  </div>
+</body>
+</html>

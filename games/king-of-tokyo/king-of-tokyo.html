@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta charset="utf-8" />
+  <title>King of Tokyo Counter</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="king-of-tokyo.css">
+</head>
+<body>
+  <div class="board" id="board"></div>
+  <template id="pill-template">
+    <div class="pill" role="group">
+      <button class="btn plus" aria-label="Increase"><span class="glyphicon glyphicon-plus"></span></button>
+      <button class="btn value" aria-live="polite">
+        <span class="icon glyphicon"></span>
+        <span class="amount" data-role="value">0</span>
+      </button>
+      <button class="btn minus" aria-label="Decrease"><span class="glyphicon glyphicon-minus"></span></button>
+    </div>
+  </template>
+  <script src="king-of-tokyo.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
