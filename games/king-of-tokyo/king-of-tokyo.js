@@ -3,7 +3,7 @@
     hp:     { label:'Health',  icon:'glyphicon-heart',    color: '#ef4444', min:0,  max:12,  default:10, enabled:true },
     vp:     { label:'Victory', icon:'glyphicon-star',     color: '#309fff', min:0,  max:20,  default:0,  enabled:true },
     energy: { label:'Energy',  icon:'glyphicon-flash',    color: '#34d399', min:0,  max:20,  default:0,  enabled:true },
-    smoke:  { label:'Smoke',   icon:'glyphicon-cloud',    color: '#908a9c', min:0,  max:6,   default:3,  enabled:true },
+    smoke:  { label:'Smoke',   icon:'glyphicon-cloud',    color: '#908a9c', min:0,  max:6,   default:0,  enabled:true },
     shrink: { label:'Shrink',  icon:'glyphicon-asterisk', color: '#c9f765', min:0,  max:20,  default:0,  enabled:true },
     poison: { label:'Poison',  icon:'glyphicon-tint',     color: '#854ca8', min:0,  max:20,  default:0,  enabled:true }
   };

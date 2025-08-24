@@ -1,12 +1,27 @@
 {
   "name": "Game Hub",
   "short_name": "Game Hub",
-  "start_url": "./index.html",
+  "start_url": "./",
+  "scope": "./",
   "display": "standalone",
   "background_color": "#06080a",
   "theme_color": "#06080a",
   "icons": [
-    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
-    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" }
+    { "src": "./assets/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./assets/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "screenshots": [
+    {
+      "src": "./assets/screenshot_home.jpeg",
+      "sizes": "738x1600",
+      "type": "image/jpeg",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "./assets/screenshot_kot.jpeg",
+      "sizes": "1600x738",
+      "type": "image/jpeg",
+      "form_factor": "wide"
+    }
   ]
 }

@@ -5,8 +5,14 @@
   <meta charset="utf-8" />
   <title>King of Tokyo Counter</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="king-of-tokyo.css">
+<link rel="manifest" href="../../manifest.json">
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('../../sw.js', { scope: '../../' })
+      .catch(console.error);
+  }
+</script>
+  <link rel="stylesheet" href="./king-of-tokyo.css">
 </head>
 <body>
   <div class="board" id="board"></div>
@@ -20,11 +26,6 @@
       <button class="btn minus" aria-label="Decrease"><span class="glyphicon glyphicon-minus"></span></button>
     </div>
   </template>
-  <script src="king-of-tokyo.js"></script>
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('sw.js');
-    }
-  </script>
+  <script src="./king-of-tokyo.js"></script>
 </body>
 </html>

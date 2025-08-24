@@ -2,6 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <link rel="manifest" href="./manifest.json">
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./sw.js', { scope: './' })
+        .catch(console.error);
+    }
+  </script>
   <title>Game Hub</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <style>
@@ -47,10 +54,10 @@
   </style>
 </head>
 <body>
-  <img src="assets/icon.svg" alt="Game Hub Icon" style="width:100px;margin-bottom:100px;">
+  <img src="./assets/icon.svg" alt="Game Hub Icon" style="width:100px;margin-bottom:100px;">
   <!-- <h1>Game Hub</h1> -->
   <div class="game-list">
-    <a class="game-link" href="games/king-of-tokyo/king-of-tokyo.html">King of Tokyo Counter</a>
+    <a class="game-link" href="./games/king-of-tokyo/king-of-tokyo.html">King of Tokyo Counter</a>
     <!-- Add more games here -->
     <!-- Example:
     <a class="game-link" href="games/another-game/another-game.html">Another Game</a>
