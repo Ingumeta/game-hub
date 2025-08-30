@@ -215,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('new-round').onclick = () => {
     game.classList.add('hidden');
     dialog.classList.remove('hidden');
-    setSeed(currentSeed/3 + 1e6);
+    setSeed(Math.floor(currentSeed / 3) + 1e6);
     showChoosePlayerRoleDialog();
   };
   // document.getElementById('share-link').onclick = () => {
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Load words from a txt file and store globally
 let words = [];
 
-async function loadWords(lang = 'en') {
+async function loadWords(lang = 'de') {
   const response = await fetch(`words-${lang}.txt`);
   const text = await response.text();
   words = text.split('\n').map(w => w.trim()).filter(Boolean);
