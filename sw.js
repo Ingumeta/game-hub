@@ -1,4 +1,4 @@
-const CACHE = 'game-hub-v3';
+const CACHE = 'game-hub-v7';
 const ASSETS = [
   './',
   './index.html',
@@ -6,6 +6,11 @@ const ASSETS = [
   './assets/icon-192.png',
   './assets/icon-512.png',
   './games/king-of-tokyo/king-of-tokyo.html',
+  './games/king-of-tokyo/king-of-tokyo.css',
+  './games/king-of-tokyo/king-of-tokyo.js',
+  './games/codenames/codenames.css',
+  './games/codenames/codenames.html',
+  './games/codenames/codenames.js'
 ];
 
 self.addEventListener('install', event => {

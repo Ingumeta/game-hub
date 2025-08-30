@@ -3,7 +3,7 @@
   "short_name": "Game Hub",
   "start_url": "./",
   "scope": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "background_color": "#06080a",
   "theme_color": "#06080a",
   "icons": [
