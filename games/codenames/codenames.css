@@ -102,8 +102,23 @@ h1 {
   user-select: none;
   box-sizing: border-box;
 }
-.cell.redagent { background: #e44; color: #fff; }
-.cell.blueagent { background: #309fff; color: #fff; }
-.cell.bystander { background: #9a8d83; color: #fff; }
-.cell.assassin { background: #222; color: #fff; }
-.cell.hidden_identity { background: #e7e2c7; color: #fff; }
+
+.cell.redagent.hidden_identity,
+.cell.blueagent.hidden_identity,
+.cell.bystander.hidden_identity,
+.cell.assassin.hidden_identity {
+  background: #e7e2c7;
+  color: #232323;
+}
+.cell.redagent.revealed_identity { background: #e44; color: #fff; }
+.cell.blueagent.revealed_identity { background: #309fff; color: #fff; }
+.cell.bystander.revealed_identity { background: #9a8d83; color: #fff; }
+.cell.assassin.revealed_identity { background: #222; color: #fff; }
+.seed-display {
+  text-align: center;
+  font-size: 1em;
+  margin-bottom: 10px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
