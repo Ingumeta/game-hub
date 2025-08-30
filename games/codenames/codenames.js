@@ -20,19 +20,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Dialog flow state
   let step = 0;
-  let currentSeed = null;
+  let currentSeed = localStorage.getItem('codenames-last-seed') || null;
   let playerRole = null;
 
   function showUseCacheDialog() {
-    dialog.innerHTML = `
-      <div>
-        <p>Use cached seed?</p>
-        <button id="use-cache-yes">Yes (Rejoin previous game)</button>
-        <button id="use-cache-no">No (Join new game)</button>
-      </div>
-    `;
-    document.getElementById('use-cache-yes').onclick = () => showChoosePlayerRoleDialog();
-    document.getElementById('use-cache-no').onclick = () => showUseGeneratedDialog();
+    const cachedSeed = localStorage.getItem('codenames-last-seed');
+    if (cachedSeed) {
+      dialog.innerHTML = `
+        <div>
+          <p>Use cached seed?<br><small>Seed: ${cachedSeed}</small></p>
+          <button id="use-cache-yes">Yes (Rejoin previous game)</button>
+          <button id="use-cache-no">No (Start new game)</button>
+        </div>
+      `;
+      document.getElementById('use-cache-yes').onclick = () => {
+        setSeed(cachedSeed);
+        showChoosePlayerRoleDialog();
+      };
+      document.getElementById('use-cache-no').onclick = () => showUseGeneratedDialog();
+    } else {
+      showUseGeneratedDialog();
+    }
   }
 
   function showUseGeneratedDialog() {
@@ -50,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function setSeed(seed) {
     currentSeed = Number(seed);
+    localStorage.setItem('codenames-last-seed', currentSeed);
     updateSeedDisplay();
   }
 
@@ -206,7 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('new-round').onclick = () => {
     game.classList.add('hidden');
     dialog.classList.remove('hidden');
-    setSeed(currentSeed + 1e6);
+    setSeed(currentSeed/3 + 1e6);
     showChoosePlayerRoleDialog();
   };
   // document.getElementById('share-link').onclick = () => {
