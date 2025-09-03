@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function getBuild(seed, words) {
     // Determine starting team (red or blue) using the seed
 
-    const selectionCount = 25;
+    const selectionCount = 24;
     const startRand = getRandom(seed + 5555);
     const redStarts = startRand < 0.5;
     const startingTeam = redStarts ? Team.RED : Team.BLUE;
