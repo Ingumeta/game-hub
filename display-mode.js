@@ -1,6 +1,7 @@
 function isPWA() {
-  return window.matchMedia('(display-mode: standalone)').matches
-    || window.navigator.standalone === true;
+  const dm = window.matchMedia('(display-mode: standalone)').matches
+    || window.matchMedia('(display-mode: fullscreen)').matches;
+  return dm || window.navigator.standalone === true;
 }
 
 function applyDisplayModeClass() {
