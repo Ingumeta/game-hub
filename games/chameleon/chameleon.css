@@ -1,16 +1,16 @@
 html, body {
   height: 100%;
-  width: 100%;
+  width: 100vw;
   margin: 0;
   padding: 0;
 }
 
 body {
-  background: #06080a;
+  background: #06080a !important;
   color: #fff;
   font: 18px system-ui, sans-serif;
   overflow-x: hidden;
-  margin: 0;
+  margin: 0 !important;
   padding: 0;
 }
 
@@ -23,13 +23,13 @@ body.pwa {
 body.browser { min-height: 100vh; }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 24px;
-  margin: 0;
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100vw !important;
+  height: 100% !important;
+  box-sizing: border-box !important;
+  padding: 24px !important;
+  margin: 0 !important;
 }
 
 #game {
@@ -38,7 +38,7 @@ body.browser { min-height: 100vh; }
   height: 100%;
   width: 100%;
   flex-direction: column;
-  min-height: 0; /* Prevent overflow issues */
+  min-height: 0;
 }
 
 h1 {
@@ -53,6 +53,16 @@ h1 {
   margin-bottom: 24px;
   text-align: center;
 }
+
+/* .dialog, .player-setup-dialog {
+  background: #151c28;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: center;
+  box-shadow: 0 2px 16px #0004;
+} */
+
 .dialog button {
   margin: 12px 8px 0 8px;
   padding: 12px 24px;
@@ -63,9 +73,26 @@ h1 {
   color: #fff;
   cursor: pointer;
 }
+/* .dialog button, .player-setup-dialog button {
+  margin: 12px 8px 0 8px;
+  padding: 12px 24px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  background: #222a36;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 0 2px 8px #0002;
+  transition: background 0.2s;
+} */
+/* .dialog button:hover, .player-setup-dialog button:hover {
+  background: #2176c7;
+} */
+
 .hidden {
   display: none !important;
 }
+
 .menu {
   display: flex;
   justify-content: space-between;
@@ -81,45 +108,7 @@ h1 {
   font-size: 1em;
   flex: 0 0 auto;
 }
-.grid {
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(6, 1fr);
-  gap: 6px;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  max-width: 100%;
-  max-height: 100%;
-}
-.cell {
-  width: 100%;
-  height: 100%;
-  aspect-ratio: unset;
-  border-radius: 8px;
-  background: #e7e2c7;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.1em;
-  font-weight: 600;
-  color: #222;
-  user-select: none;
-  box-sizing: border-box;
-}
 
-.cell.redagent.hidden_identity,
-.cell.blueagent.hidden_identity,
-.cell.bystander.hidden_identity,
-.cell.assassin.hidden_identity {
-  background: #e7e2c7;
-  color: #232323;
-}
-.cell.redagent.revealed_identity { background: #e44; color: #fff; }
-.cell.blueagent.revealed_identity { background: #309fff; color: #fff; }
-.cell.bystander.revealed_identity { background: #9a8d83; color: #fff; }
-.cell.assassin.revealed_identity { background: #222; color: #fff; }
 .seed-display {
   text-align: center;
   font-size: 1em;
@@ -129,9 +118,43 @@ h1 {
   font-family: monospace;
 }
 
+.grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 8px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.cell {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: unset;
+  border-radius: 8px;
+  background: #444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1em;
+  color: #fff;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+.player-setup-dialog select {
+  background: #222a36;
+  color: #fff;
+  border: 1px solid #444;
+}
+
 @media (orientation: portrait) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(12, 1fr);
+    grid-template-rows: repeat(8, 1fr);
   }
 }

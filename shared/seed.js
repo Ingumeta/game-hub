@@ -1,11 +1,10 @@
 let emojis = [];
-loadEmojis();
 
 async function loadEmojis() {
-  const response = await fetch('../../emojis.txt');
+  const response = await fetch('../../shared/emojis.txt');
   const text = await response.text();
-  // Split on each emoji (not line), filter out empty strings
-  emojis = Array.from(text.trim()).filter(e => /\p{Emoji}/u.test(e));
+  // Split by line, trim, and filter out empty lines
+  emojis = text.split('\n').map(e => e.trim()).filter(Boolean);
 }
 
 function getEmojiForSeed(seed) {
@@ -48,13 +47,25 @@ function getSeedSelection(){
 }
 
 function getRandom(seed) {
+    s = iterateSeed(seed, 5);
+    return splitmix32(seed);
     // Xorshift32 PRNG for deterministic pseudo-random numbers
-    let x = typeof seed === 'number' ? seed : Number(seed);
+    let x = typeof s === 'number' ? s : Number(s);
     x ^= x << 13;
     x ^= x >> 17;
     x ^= x << 5;
     // Convert to [0, 1)
     return ((x >>> 0) % 1e9) / 1e9;
+}
+
+function splitmix32(a) {
+   a |= 0;
+   a = a + 0x9e3779b9 | 0;
+   let t = a ^ a >>> 16;
+   t = Math.imul(t, 0x21f0aaad);
+   t = t ^ t >>> 15;
+   t = Math.imul(t, 0x735a2d97);
+   return ((t = t ^ t >>> 15) >>> 0) / 4294967296;
 }
 
 function getRandomSelection(seed, list, count) {
@@ -63,14 +74,17 @@ function getRandomSelection(seed, list, count) {
     const result = [];
     let starting_seed = Number(seed);
     let s = Number(seed);
-
+    
     for (let i = 0; i < count && arr.length > 0; i++) {
         // Use a deterministic random number for each pick
         s = starting_seed + s + 1; // Change seed for each pick
         const r = getRandom(s);
+        console.info(s);
+        console.info(r);
         const idx = Math.floor(r * arr.length);
         result.push(arr[idx]);
         arr.splice(idx, 1); // Remove picked element
+        console.info(idx);
     }
     return result;
 }

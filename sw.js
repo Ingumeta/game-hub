@@ -1,4 +1,4 @@
-const CACHE = 'game-hub-v12';
+const CACHE = 'game-hub-v19';
 const ASSETS = [
   './',
   './index.html',
@@ -10,7 +10,17 @@ const ASSETS = [
   './games/king-of-tokyo/king-of-tokyo.js',
   './games/codenames/codenames.css',
   './games/codenames/codenames.html',
-  './games/codenames/codenames.js'
+  './games/codenames/codenames.js',
+  './games/codenames/words-de.txt',
+  './games/codenames/words-en.txt',
+  './games/chameleon/chameleon.html',
+  './games/chameleon/chameleon.css',
+  './games/chameleon/chameleon.js',
+  './games/chameleon/categories-de.txt',
+  './shared/seed.js',
+  './shared/emojis.txt',
+  './shared/spinner.css',
+  './shared/spinner.js'
 ];
 
 self.addEventListener('install', event => {

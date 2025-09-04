@@ -1,0 +1,454 @@
+Tiere
+Hund
+Katze
+Vogel
+Fisch
+Kuh
+Pferd
+Schaf
+Schwein
+Hase
+Maus
+Löwe
+Tiger
+Affe
+Bär
+Frosch
+Eule
+
+Obst
+Apfel
+Banane
+Birne
+Kirsche
+Traube
+Pfirsich
+Melone
+Erdbeere
+Orange
+Zitrone
+Pflaume
+Mango
+Kiwi
+Ananas
+Himbeere
+Johannisbeere
+
+Gemüse
+Karotte
+Tomate
+Gurke
+Paprika
+Zwiebel
+Salat
+Spinat
+Brokkoli
+Blumenkohl
+Erbse
+Bohne
+Mais
+Kürbis
+Radieschen
+Sellerie
+Rote Bete
+
+Basler Spezialitäten
+Läckerli
+Rheinfähre
+Münster
+Fasnacht
+Dybli
+Roche
+Novartis
+Tinguely
+Messeturm
+Zoo
+Rhein
+Tram
+Marktplatz
+Spalentor
+Birseck
+Wettsteinbrücke
+
+Schweizer Städte
+Basel
+Zürich
+Bern
+Luzern
+St. Gallen
+Winterthur
+Lausanne
+Genf
+Chur
+Biel
+Schaffhausen
+Thun
+Solothurn
+Aarau
+Sion
+Fribourg
+
+Sportarten
+Fussball
+Tennis
+Basketball
+Handball
+Volleyball
+Eishockey
+Schwimmen
+Rudern
+Leichtathletik
+Boxen
+Golf
+Skifahren
+Snowboarden
+Turnen
+Badminton
+Tischtennis
+
+Schulfächer
+Mathematik
+Deutsch
+Englisch
+Französisch
+Geschichte
+Geografie
+Biologie
+Chemie
+Physik
+Kunst
+Musik
+Sport
+Religion
+Informatik
+Ethik
+Wirtschaft
+
+Basler Quartiere
+St. Alban
+Gundeldingen
+Kleinhüningen
+Neubad
+Bachletten
+Breite
+Bruderholz
+St. Johann
+Iselin
+Wettstein
+Matthäus
+Clara
+Vorstädte
+Am Ring
+Altstadt
+Rosental
+
+Berufe
+Arzt
+Lehrer
+Ingenieur
+Koch
+Polizist
+Bäcker
+Mechaniker
+Friseur
+Architekt
+Künstler
+Journalist
+Verkäufer
+Elektriker
+Landwirt
+Pilot
+Musiker
+
+Musikinstrumente
+Gitarre
+Klavier
+Violine
+Schlagzeug
+Flöte
+Saxophon
+Trompete
+Cello
+Bass
+Oboe
+Klarinette
+Harfe
+Akkordeon
+Orgel
+Mandoline
+Banjo
+
+Basel
+Münster
+Zolli
+Rhein
+Tinguely-Brunnen
+Spalentor
+Marktplatz
+Messeturm
+Roche-Turm
+Barfi
+Theater Basel
+Tinguely Museum
+Kunstmuseum
+Botanischer Garten
+St. Jakob-Park
+Dreiländereck
+Schifflände
+
+Farben
+Rot
+Blau
+Gelb
+Grün
+Orange
+Lila
+Rosa
+Braun
+Schwarz
+Weiß
+Grau
+Türkis
+Beige
+Gold
+Silber
+Violett
+
+Supermärkte
+Migros
+Coop
+Aldi
+Lidl
+Denner
+Spar
+Volg
+Manor
+Globus
+Carrefour
+Edeka
+Rewe
+Penny
+Intermarché
+Tesco
+Super U
+
+Getränke
+Wasser
+Cola
+Fanta
+Bier
+Wein
+Kaffee
+Tee
+Saft
+Milch
+Ovo
+Rivella
+Eistee
+Mate
+Prosecco
+Whisky
+Rum
+Gin
+
+Schweizer Unternehmen
+Nestlé
+Novartis
+Roche
+UBS
+Credit Suisse
+Migros
+Coop
+Swisscom
+Sympany
+Swatch
+Glencore
+ABB
+SBB
+Ruag
+Lindt
+Ricola
+
+Filme
+Titanic
+Avatar
+Matrix
+Inception
+Star Wars
+Harry Potter
+Herr der Ringe
+Jurassic Park
+Forrest Gump
+Gladiator
+James Bond
+Shrek
+Toy Story
+Frozen
+Rocky
+Joker
+Interstellar
+
+Länder
+Deutschland
+Frankreich
+Italien
+Spanien
+Portugal
+Schweiz
+Österreich
+Niederlande
+Belgien
+Dänemark
+Schweden
+Norwegen
+Polen
+Griechenland
+Türkei
+England
+USA
+
+Städte weltweit
+New York
+London
+Paris
+Berlin
+Rom
+Madrid
+Wien
+Tokio
+Sydney
+Toronto
+Los Angeles
+Rio de Janeiro
+Barcelona
+Bangkok
+Dubai
+Singapur
+Hongkong
+
+Bücher
+Die Bibel
+Harry Potter
+Der kleine Prinz
+Herr der Ringe
+Die Säulen der Erde
+Der Alchimist
+Momo
+Faust
+Die Tribute von Panem
+Das Parfum
+Der Medicus
+Der Prozess
+Die unendliche Geschichte
+Der Name der Rose
+Der Vorleser
+Der Schwarm
+
+Gemüsesorten
+Karotte
+Tomate
+Gurke
+Paprika
+Zwiebel
+Salat
+Spinat
+Brokkoli
+Blumenkohl
+Erbse
+Bohne
+Mais
+Kürbis
+Radieschen
+Sellerie
+Rote Bete
+
+Musikrichtungen
+Rock
+Pop
+Jazz
+Klassik
+Hip-Hop
+Reggae
+Blues
+Techno
+Schlager
+Folk
+Metal
+Country
+Soul
+Punk
+Electro
+R&B
+Gospel
+
+Artists
+The Beatles
+Queen
+Michael Jackson
+Madonna
+Elton John
+Taylor Swift
+Ed Sheeran
+Adele
+Beyoncé
+Rihanna
+ABBA
+Eminem
+Lady Gaga
+Shakira
+Drake
+Katy Perry
+
+Hip Hop Artists
+Eminem
+Drake
+Kanye West
+Jay-Z
+Snoop Dogg
+Kendrick Lamar
+Nicki Minaj
+Outkast
+Lil Wayne
+Cardi B
+Ice Cube
+50 Cent
+Post Malone
+Kid Cudi
+Megan Thee Stallion
+Missy Elliot
+
+Möbel
+Stuhl
+Sofa
+Bett
+Schrank
+Regal
+Kommode
+Sessel
+Hocker
+Nachttisch
+Esstisch
+Couchtisch
+Vitrine
+Schreibtisch
+Bank
+Bücherregal
+Schuhschrank
+
+Kleidungsstücke
+Hemd
+T-Shirt
+Pullover
+Jacke
+Mantel
+Rock
+Kleid
+Bluse
+Shorts
+Hose
+Anzug
+Socken
+Handschuhe
+Unterhemd
+Unterhose
+Pyjama
