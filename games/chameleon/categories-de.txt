@@ -386,7 +386,7 @@ The Beatles
 Queen
 Michael Jackson
 Madonna
-Elton John
+Britney Spears
 Taylor Swift
 Ed Sheeran
 Adele
@@ -396,8 +396,8 @@ ABBA
 Eminem
 Lady Gaga
 Shakira
-Drake
-Katy Perry
+Kanye West
+Bob Marley
 
 Hip Hop Artists
 Eminem

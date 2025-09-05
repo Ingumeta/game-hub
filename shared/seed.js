@@ -7,6 +7,10 @@ async function loadEmojis() {
   emojis = text.split('\n').map(e => e.trim()).filter(Boolean);
 }
 
+async function initSeeds(){
+    await loadEmojis();
+}
+
 function getEmojiForSeed(seed) {
   if (!emojis.length) return '❓';
   const idx = Math.abs(iterateSeed(seed, 3)) % emojis.length;
@@ -93,3 +97,127 @@ function getRandomSelection(seed, list, count) {
 // loadEmojis().then(() => {
 //   const emoji = getEmojiForSeed(currentSeed);
 // });
+function getSeedByOffset(windowMinutes, offset = 0) {
+return createSeed(windowMinutes) + offset;
+}
+
+function showSeedSelectionDialog(
+    container, 
+    windowMinutes, 
+    next, 
+    offset = 0
+) {
+    const seed1 = getSeedByOffset(windowMinutes, offset);
+    const seed2 = getSeedByOffset(windowMinutes, offset + 1);
+
+    container.innerHTML = `
+      <div>
+        <p>Pick your seed:</p>
+        <button class="seed-btn" id="seed-btn-1" style="
+          background:${getColorForSeed(seed1)};
+        ">${getEmojiForSeed(seed1)}</button>
+        <button class="seed-btn" id="seed-btn-2" style="
+          background:${getColorForSeed(seed2)};
+        ">${getEmojiForSeed(seed2)}</button>
+        <div style="display:flex; justify-content:space-between; margin-top:24px;">
+          <button id="seed-back" style="flex:1; margin-right:8px; background:none; border:none; cursor:pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
+              <path fill="#555" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            </svg>
+          </button>
+          <button id="seed-forward" style="flex:1; margin-left:8px; background:none; border:none; cursor:pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
+              <path fill="#555" d="M4.646 14.354a.5.5 0 0 1 0-.708L10.293 8 4.646 2.354a.5.5 0 1 1 .708-.708l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708 0z"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    `;
+
+    document.getElementById('seed-btn-1').onclick = () => {
+        continueWithSelectedSeed(seed1);
+    };
+    document.getElementById('seed-btn-2').onclick = () => {
+        continueWithSelectedSeed(seed2);
+    };
+    document.getElementById('seed-back').onclick = () => {
+      browseSeeds(offset - 2);
+    };
+    document.getElementById('seed-forward').onclick = () => {
+      browseSeeds(offset + 2);
+    };
+    function browseSeeds(offset) {
+      showSeedSelectionDialog(
+        container,
+        windowMinutes,
+        next,
+        offset
+      );
+    }
+    function continueWithSelectedSeed(selectedSeed) {
+      setSeed(selectedSeed);
+      updateSeedDisplay();
+      setupQrCodeModal();
+      next();
+    }
+
+    function setupQrCodeModal() {
+        const seedDisplay = document.getElementById('seed-display');
+        const qrModal = document.getElementById('qr-modal');
+        qrModal.innerHTML = ` 
+            <div class="seed-modal" style="background:#222; border-radius:18px; padding:32px; text-align:center; position:relative;">
+            <img src="../../assets/qrcode.svg" alt="QR Code" style="width:80vw;">
+            <button id="close-qr" style="position:absolute; top:-16px; right:-16px; background:none; border:none; cursor:pointer; padding:0;">
+            <svg width="40" height="40" viewBox="0 0 32 32" aria-label="Schließen">
+            <line x1="8" y1="8" x2="24" y2="24" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <line x1="24" y1="8" x2="8" y2="24" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+            </button>
+            </div>
+            `;
+        const closeQrBtn = document.getElementById('close-qr');
+        
+        if (seedDisplay && qrModal && closeQrBtn) {
+            seedDisplay.style.cursor = 'pointer';
+            seedDisplay.onclick = () => {
+            qrModal.style.display = 'flex';
+            };
+            closeQrBtn.onclick = () => {
+            qrModal.style.display = 'none';
+            };
+        }
+    }
+}
+
+
+
+
+    // Seed logic
+  let currentSeed = null;
+  function setSeed(seed) {
+    currentSeed = seed;
+    // localStorage.setItem('chameleon-last-seed', seed);
+  }
+
+  function updateSeedDisplay() {
+    const seedDisplay = document.getElementById('seed-display');
+    console.info('seed-display');
+    if (seedDisplay) {
+      const emoji = getEmojiForSeed(currentSeed);
+      const color = getColorForSeed(currentSeed);
+      seedDisplay.innerHTML = `
+        <span style="
+          background:${color};
+          color:#fff;
+          font-size:2em;
+          padding:0.2em 0.7em;
+          border-radius:1em;
+          display:inline-block;
+        ">${emoji}</span>
+      `;
+    }
+  }
+
+
+  window.showSeedSelectionDialog = showSeedSelectionDialog;
+  window.initSeeds = initSeeds;

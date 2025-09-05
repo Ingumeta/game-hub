@@ -4,7 +4,10 @@
   <meta charset="utf-8">
   <title>Codenames Setup</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../../shared/seed.css">
   <link rel="stylesheet" href="codenames.css">
+  <script src="../../display-mode.js"></script>
+  <script src="../../shared/seed.js"></script>
 </head>
 <body>
   <main class="container">
@@ -15,11 +18,10 @@
         <div id="seed-display" class="seed-display"></div>
         <button id="exit-game">Exit Game</button>
       </div>
+      <div id="qr-modal" style="display:none; position:fixed; left:0; top:0; width:100vw; height:100vh; background:#000a; z-index:9999; align-items:center; justify-content:center;"></div>
       <div id="grid" class="grid"></div>
     </section>
   </main>
-  <script src="../../display-mode.js"></script>
-  <script src="../../shared/seed.js"></script>
   <script src="codenames.js"></script>
 </body>
 </html>

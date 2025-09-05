@@ -1,75 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Use a shorter window for Chameleon (2 minutes)
-  function getSeedByOffset(offset = 0) {
-    return createSeed(2) + offset;
-  }
-
-  // Reuse seed selection dialog from seed.js if you move it there
-  // For now, copy the logic from codenames.js and adjust window length
-
-  function showSeedSelectionDialog(offset = 0) {
-    const seed1 = getSeedByOffset(offset);
-    const seed2 = getSeedByOffset(offset + 1);
-
-    dialog.innerHTML = `
-      <div>
-        <p>Pick your seed:</p>
-        <button id="seed-btn-1" style="
-          background:${getColorForSeed(seed1)};
-          color:#fff;
-          font-size:2.5em;
-          padding:32px 0;
-          width:90%;
-          margin:16px auto;
-          display:block;
-          border-radius:18px;
-          border:none;
-          cursor:pointer;
-          font-family:inherit;
-        ">${getEmojiForSeed(seed1)}</button>
-        <button id="seed-btn-2" style="
-          background:${getColorForSeed(seed2)};
-          color:#fff;
-          font-size:2.5em;
-          padding:32px 0;
-          width:90%;
-          margin:16px auto;
-          display:block;
-          border-radius:18px;
-          border:none;
-          cursor:pointer;
-          font-family:inherit;
-        ">${getEmojiForSeed(seed2)}</button>
-        <div style="display:flex; justify-content:space-between; margin-top:24px;">
-          <button id="seed-back" style="flex:1; margin-right:8px; background:none; border:none; cursor:pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-              <path fill="#555" d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-            </svg>
-          </button>
-          <button id="seed-forward" style="flex:1; margin-left:8px; background:none; border:none; cursor:pointer;">
-            <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" fill="currentColor" viewBox="0 0 16 16">
-              <path fill="#555" d="M4.646 14.354a.5.5 0 0 1 0-.708L10.293 8 4.646 2.354a.5.5 0 1 1 .708-.708l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708 0z"/>
-            </svg>
-          </button>
-        </div>
-      </div>
-    `;
-
-    document.getElementById('seed-btn-1').onclick = () => {
-      setSeed(seed1);
-      showPlayerSetupDialog();
-    };
-    document.getElementById('seed-btn-2').onclick = () => {
-      setSeed(seed2);
-      showPlayerSetupDialog();
-    };
-    document.getElementById('seed-back').onclick = () => {
-      showSeedSelectionDialog(offset - 2);
-    };
-    document.getElementById('seed-forward').onclick = () => {
-      showSeedSelectionDialog(offset + 2);
-    };
-  }
 
   async function loadCategories() {
     if (!window.chameleonCategories) {
@@ -108,7 +37,6 @@ document.addEventListener('DOMContentLoaded', () => {
     dialog.classList.add('hidden');
     game.classList.remove('hidden');
     grid.innerHTML = '';
-    updateSeedDisplay();
 
     const categories = await loadCategories();
     const setup = buildSetup(currentSeed, categories);
@@ -132,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
       newRoundBtn.onclick = () => {
         game.classList.add('hidden');
         dialog.classList.remove('hidden');
-        showSeedSelectionDialog();
+        initGame();
       };
     }
 
@@ -145,54 +73,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function updateSeedDisplay() {
-    const seedDisplay = document.getElementById('seed-display');
-    if (seedDisplay) {
-      const emoji = getEmojiForSeed(currentSeed);
-      const color = getColorForSeed(currentSeed);
-      seedDisplay.innerHTML = `
-        <span style="
-          background:${color};
-          color:#fff;
-          font-size:2em;
-          padding:0.2em 0.7em;
-          border-radius:1em;
-          margin-right:0.5em;
-          display:inline-block;
-        ">${emoji}</span>
-      `;
-    }
-  }
-
-  // Seed logic
-  let currentSeed = null;
-  function setSeed(seed) {
-    currentSeed = seed;
-    localStorage.setItem('chameleon-last-seed', seed);
-  }
-
   // Wait for emojis to load before showing dialog
-  loadEmojis().then(() => {
-    showSeedSelectionDialog();
+  window.initSeeds().then(() => {
+    initGame();
   });
+
+  function initGame(){
+    windowMinutes = 2;
+    window.showSeedSelectionDialog(
+      container = dialog,
+      windowMinutes = windowMinutes,
+      next = showPlayerSetupDialog,
+    );
+  }
 
   // Get references
   const dialog = document.getElementById('dialog');
   const game = document.getElementById('game');
   const grid = document.getElementById('grid');
-
-  async function loadChameleonCards() {
-    const response = await fetch('chameleon-cards.txt');
-    const text = await response.text();
-    const cards = text.split(/\n\s*\n/).map(card => {
-      const lines = card.trim().split('\n').map(l => l.trim()).filter(Boolean);
-      return {
-        category: lines[0],
-        words: lines.slice(1)
-      };
-    });
-    return cards;
-  }
 
 let playerCount = 4;   // Default number of players
 let playerIndex = 1;   // Default player index
@@ -219,7 +117,7 @@ let selectedCategoryIdx = null; // Store selected category index
     select.style.color = '#fff';
     select.style.border = '1px solid #444';
 
-    // Add "Zufällig" (random) option
+    // Add "Random" option
     const randomOption = document.createElement('option');
     randomOption.value = 'random';
     randomOption.textContent = 'Random';
@@ -247,6 +145,11 @@ let selectedCategoryIdx = null; // Store selected category index
     okBtn.textContent = 'OK';
     okBtn.style.marginTop = '12px';
     okBtn.className = 'btn btn-primary';
+    okBtn.style.display = 'block';      // Ensure button is block-level
+    okBtn.style.width = '80%';          // Match dropdown width
+    okBtn.style.marginLeft = 'auto';    // Center horizontally
+    okBtn.style.marginRight = 'auto';
+
     okBtn.onclick = () => {
       let selectedIdx = select.value;
       if (selectedIdx === 'random') {
@@ -326,4 +229,7 @@ let selectedCategoryIdx = null; // Store selected category index
 
     dialog.appendChild(wrapper);
   }
+
+
 });
+
