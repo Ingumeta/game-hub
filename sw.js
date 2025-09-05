@@ -1,4 +1,4 @@
-const CACHE = 'game-hub-v19';
+const CACHE = 'game-hub-v20';
 const ASSETS = [
   './',
   './index.html',
